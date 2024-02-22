@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>サンプルページ</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header id="header">
+        <nav id="navigation">
+          <div class="img_log">
+            <img src="https://placehold.jp/120x60.png" alt="" />
+          </div>
+          <ul class="menu">
+            <li><a href="*">section1</a></li>
+            <li><a href="*">section2</a></li>
+            <li><a href="*">section3</a></li>
+            <li><a href="*">section4</a></li>
+            <li><a href="*">section5</a></li>
+          </ul>
+          <div id="ham_btn" class="ham">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+        <div class="nav_cover">
+          <ul>
+            <li><a href="*">section1</a></li>
+            <li><a href="*">section2</a></li>
+            <li><a href="*">section3</a></li>
+            <li><a href="*">section4</a></li>
+            <li><a href="*">section5</a></li>
+          </ul>
+        </div>
+        <div class="header_img">
+          <img src="https://placehold.jp/1440x810.png" alt="" />
+        </div>
+        <div class="header_contents">
+          <p>
+            テキストテキストテキストテキストテキストテキストテキストテキスト
+          </p>
+        </div>
+      </header>
+      <main id="main">
+        <section class="section1">
+          <h2 class="title_section1">SECTION1</h2>
+          <div class="wrap_section1_img">
+            <img src="https://placehold.jp/300x300.png" alt="" />
+            <img src="https://placehold.jp/300x300.png" alt="" />
+            <img src="https://placehold.jp/300x300.png" alt="" />
+          </div>
+          <p>
+            <span
+              >セクション1セクション1セクション1セクション1セクション1セクション1</span
+            >
+          </p>
+        </section>
+        <section class="section2">
+          <h2 class="title_section2">SECTION2</h2>
+          <div class="wrap_section2_img">
+            <img src="https://placehold.jp/300x300.png" alt="" />
+            <img src="https://placehold.jp/300x300.png" alt="" />
+            <img src="https://placehold.jp/300x300.png" alt="" />
+          </div>
+          <p>
+            セクション1セクション1セクション1セクション1セクション1セクション1
+          </p>
+        </section>
+      </main>
+      <!-- <footer id="footer">フッター</footer> -->
+      <footer id="footer">
+        <p class="pnkz">
+          <a href="/">RSKトップ</a>>
+          <a href="/radio/">ラジオトップ</a>>テストページ
+        </p>
+        <div class="snsbtn">
+          <a
+            href="https://www.facebook.com/share.php?u=https://www.rsk.co.jp/radio/metlife/index.html"
+            rel="nofollow"
+            target="_blank"
+            class="btn-fb"
+          >
+            <img src="img/facebook.svg" alt="facebook" />
+          </a>
+          <a
+            href="https://twitter.com/share?url=https://www.rsk.co.jp/radio/metlife/index.html&text=マネーセミナー「今すぐ始めたくなるお金の整理整頓と初めての投資」"
+            rel="nofollow"
+            target="_blank"
+            class="btn-tw"
+          >
+            <img src="img/twitter.svg" alt="twitter" />
+          </a>
+          <a
+            href="https://social-plugins.line.me/lineit/share?url=https://www.rsk.co.jp/radio/metlife/index.html"
+            target="_blank"
+          >
+            <img src="img/line.svg" alt="line" />
+          </a>
+        </div>
+        <p class="copyright">
+          Copyright &copy; RSK Sanyo Broadcasting Co., Ltd. All rights reserved.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // ハンバーガーメニュー
+      const btn = document.getElementById("ham_btn");
+      const ham_menu = document.querySelectorAll(".ham");
+      const cover = document.getElementById("nav_cover");
+
+      btn.addEventListener("click", () => {
+        ham_menu.forEach((span) => {
+          span.classList.toggle("active");
+        });
+        cover.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
