@@ -1,100 +1,137 @@
 body {
   font-size: 16px;
 }
-
 .container {
-  width: 100%;
-  height: auto;
-  text-align: center;
+  position: relative;
   #header {
-    width: 100%;
-    text-align: center;
-    #navigation {
+    position: relative;
+    .header_wrap {
       width: 100%;
-      height: auto;
-      min-height: 90px;
-      position: fixed;
-      z-index: 10;
+      height: 80px;
       display: flex;
-      // justify-content: center;
       justify-content: space-between;
-      background-color: rgba($color: #e7e2e2, $alpha: 1);
+      background-color: rgba($color: #b2b2b0, $alpha: 1);
+      text-align: center;
       align-items: center;
-      opacity: 0.6;
-      .img_logo {
+      position: fixed;
+      .logo {
+        // max-width: 150px;
         width: auto;
-        max-width: 120px;
         height: auto;
-        max-height: 70px;
+        margin-left: 10px;
       }
-      .menu {
-        height: 100%;
-        // min-height: 70px;
-        width: 100%;
-        display: flex;
-        text-align: center;
-        top: 0;
-        padding: 10px;
-        justify-content: space-around;
 
-        li {
-          list-style: none;
-          a {
-            text-decoration: none;
-          }
-        }
-      }
-      #ham {
+      .nav_cover_pc {
         display: none;
       }
-    }
-    .nav_cover {
-      display: none;
-    }
 
-    .header_img {
-      width: 100%;
-      height: auto;
-      img {
-        margin: 0 auto;
+      .ham {
+        // display: none;
+        position: relative; /*ボタン内側の基点となるためrelativeを指定*/
+        background: #8a8a8a;
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+        margin-right: 10px;
+        span {
+          display: inline-block;
+          transition: all 0.4s; /*アニメーションの設定*/
+          position: absolute;
+          left: 14px;
+          height: 3px;
+          border-radius: 2px;
+          background: #fff;
+          width: 45%;
+        }
+
+        :nth-of-type(1) {
+          top: 15px;
+        }
+
+        :nth-of-type(2) {
+          top: 23px;
+        }
+
+        :nth-of-type(3) {
+          top: 31px;
+        }
+
+        /*activeクラスが付与されると線が回転して×に*/
+        &.active span:nth-of-type(1) {
+          top: 18px;
+          left: 18px;
+          transform: translateY(6px) rotate(-45deg);
+          width: 30%;
+        }
+
+        &.active span:nth-of-type(2) {
+          opacity: 0; /*真ん中の線は透過*/
+        }
+
+        &.active span:nth-of-type(3) {
+          top: 30px;
+          left: 18px;
+          transform: translateY(-6px) rotate(45deg);
+          width: 30%;
+        }
       }
     }
-    .header_contents {
-      margin: 30px;
-      padding: 20px;
+  }
+
+  .nav_cover_sp {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 80px;
+    left: 100%;
+    // left: 0;
+    // transform: -100%;
+    background-color: rgb(224, 222, 222);
+    z-index: 5;
+    transition: all 0.3s linear;
+    opacity: 0.8;
+    ul {
+      li {
+        list-style: none;
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+    &.active {
+      left: 0;
+      transform: 0%;
+      z-index: 5;
     }
   }
+
   #main {
-    margin: 0 auto;
     width: auto;
     max-width: 1280px;
     height: auto;
-    .section1 {
-      margin: 30px;
-      padding: 20px;
-      .title_section1 {
-        margin: 0 auto;
-        padding: 20px;
-      }
-      .wrap_section1_img {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        justify-content: space-around;
-        padding: 20px;
-      }
+    margin: 0 auto;
+    padding-top: 80px;
+    .img_top {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
     }
-    .section2 {
-      margin: 30px;
-      padding: 20px;
-      .title_section2 {
-        margin: 0 auto;
-        padding: 20px;
-      }
-      .wrap_section2_img {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        justify-content: space-around;
-        padding: 20px;
+    .introduction {
+      text-align: center;
+      margin: 2rem;
+    }
+    .section1 {
+      text-align: center;
+      margin: 20px 0;
+      .img_wrap {
+        width: 100%;
+        height: auto;
+        img {
+          margin: 0 auto;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
       }
     }
   }
@@ -103,124 +140,101 @@ body {
     height: auto;
     background-color: rgb(214, 212, 212);
     padding: 40px;
+    text-align: center;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 780px) {
   .container {
+    position: relative;
     #header {
       position: relative;
-      z-index: 0;
-      #navigation {
-        position: relative;
-        .img_logo {
-          position: relative;
-          z-index: 10;
+      .header_wrap {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgba($color: #b2b2b0, $alpha: 1);
+        text-align: center;
+        align-items: center;
+        position: fixed;
+        .logo {
+          // max-width: 150px;
+          width: auto;
+          height: auto;
+          margin-left: 10px;
         }
-        .menu {
-          // height: 100%;
-          // // min-height: 70px;
-          // position: relative;
-          // z-index: 0;
-          // width: 100%;
-          // display: initial;
-          // text-align: center;
-          // top: 0;
-          // padding: 10px;
-          // justify-content: space-around;
-          display: none;
 
-          li {
-            a {
+        .nav_cover_pc {
+          display: initial;
+          margin: 0 70px;
+          ul {
+            display: flex;
+            gap: 70px;
+
+            width: auto;
+            height: auto;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            li {
+              list-style: none;
+              a {
+                text-decoration: none;
+                color: rgba($color: #000000, $alpha: 1);
+              }
             }
           }
         }
-        #ham {
-          position: relative;
-          z-index: 10;
+
+        .ham {
+          display: none;
         }
-        .nav_cover {
-          // position: absolute;
-          display: initial;
-          z-index: 100;
-          top: 0;
-          left: 0;
+      }
+    }
+
+    .nav_cover_sp {
+      display: none;
+    }
+
+    #main {
+      width: auto;
+      max-width: 1280px;
+      height: auto;
+      margin: 0 auto;
+      padding-top: 80px;
+      .img_top {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
+      .introduction {
+        text-align: center;
+        margin: 2rem;
+      }
+      .section1 {
+        text-align: center;
+        margin: 20px 0;
+        .img_wrap {
           width: 100%;
-          height: 100vh;
-          background-color: black;
+          height: auto;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 10px;
+          img {
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
         }
       }
-
-      img {
-      }
     }
-
-    .header_contents {
-    }
-  }
-  #main {
-    .section1 {
-      .title_section1 {
-      }
-      .wrap_section1_img {
-      }
-    }
-    .section2 {
-      .title_section2 {
-      }
-      .wrap_section2_img {
-      }
-    }
-  }
-  #footer {
-  }
-
-  // ハンバーガーメニュー
-  .ham {
-    position: relative; /*ボタン内側の基点となるためrelativeを指定*/
-    // background: #8a8a8a;
-    cursor: pointer;
-    width: 100px;
-    height: auto;
-    min-height: 80px;
-    border-radius: 5px;
-    justify-content: center;
-    align-items: center;
-    span {
-      display: inline-block;
-      transition: all 0.4s; /*アニメーションの設定*/
-      position: absolute;
-      left: 14px;
-      height: 3px;
-      border-radius: 2px;
-      background: #fff;
-      width: 45%;
-    }
-
-    :nth-of-type(1) {
-      top: 15px;
-    }
-    :nth-of-type(2) {
-      top: 23px;
-    }
-    :nth-of-type(3) {
-      top: 31px;
-    }
-    /*activeクラスが付与されると線が回転して×に*/
-    &.active span:nth-of-type(1) {
-      top: 18px;
-      left: 18px;
-      transform: translateY(6px) rotate(-45deg);
-      width: 30%;
-    }
-    &.active span:nth-of-type(2) {
-      opacity: 0; /*真ん中の線は透過*/
-    }
-    &.active span:nth-of-type(3) {
-      top: 30px;
-      left: 18px;
-      transform: translateY(-6px) rotate(45deg);
-      width: 30%;
+    #footer {
+      width: 100%;
+      height: auto;
+      background-color: rgb(214, 212, 212);
+      padding: 40px;
+      text-align: center;
     }
   }
 }

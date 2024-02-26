@@ -4,176 +4,217 @@ body {
 }
 
 .container {
-  width: 100%;
-  height: auto;
-  text-align: center;
+  position: relative;
 }
 .container #header {
-  width: 100%;
-  text-align: center;
+  position: relative;
 }
-.container #header #navigation {
+.container #header .header_wrap {
   width: 100%;
-  height: auto;
-  min-height: 90px;
-  position: fixed;
-  z-index: 10;
+  height: 80px;
   display: flex;
   justify-content: space-between;
-  background-color: #e7e2e2;
-  align-items: center;
-  opacity: 0.6;
-}
-.container #header #navigation .img_logo {
-  width: auto;
-  max-width: 120px;
-  height: auto;
-  max-height: 70px;
-}
-.container #header #navigation .menu {
-  height: 100%;
-  width: 100%;
-  display: flex;
+  background-color: #b2b2b0;
   text-align: center;
-  top: 0;
-  padding: 10px;
-  justify-content: space-around;
+  align-items: center;
+  position: fixed;
 }
-.container #header #navigation .menu li {
+.container #header .header_wrap .logo {
+  width: auto;
+  height: auto;
+  margin-left: 10px;
+}
+.container #header .header_wrap .nav_cover_pc {
+  display: none;
+}
+.container #header .header_wrap .ham {
+  position: relative; /*ボタン内側の基点となるためrelativeを指定*/
+  background: #8a8a8a;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  margin-right: 10px;
+  /*activeクラスが付与されると線が回転して×に*/
+}
+.container #header .header_wrap .ham span {
+  display: inline-block;
+  transition: all 0.4s; /*アニメーションの設定*/
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: #fff;
+  width: 45%;
+}
+.container #header .header_wrap .ham :nth-of-type(1) {
+  top: 15px;
+}
+.container #header .header_wrap .ham :nth-of-type(2) {
+  top: 23px;
+}
+.container #header .header_wrap .ham :nth-of-type(3) {
+  top: 31px;
+}
+.container #header .header_wrap .ham.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+.container #header .header_wrap .ham.active span:nth-of-type(2) {
+  opacity: 0; /*真ん中の線は透過*/
+}
+.container #header .header_wrap .ham.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+.container .nav_cover_sp {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 80px;
+  left: 100%;
+  background-color: rgb(224, 222, 222);
+  z-index: 5;
+  transition: all 0.3s linear;
+  opacity: 0.8;
+}
+.container .nav_cover_sp ul li {
   list-style: none;
 }
-.container #header #navigation .menu li a {
+.container .nav_cover_sp ul li a {
   text-decoration: none;
 }
-.container #header #navigation #ham {
-  display: none;
-}
-.container #header .nav_cover {
-  display: none;
-}
-.container #header .header_img {
-  width: 100%;
-  height: auto;
-}
-.container #header .header_img img {
-  margin: 0 auto;
-}
-.container #header .header_contents {
-  margin: 30px;
-  padding: 20px;
+.container .nav_cover_sp.active {
+  left: 0;
+  transform: 0%;
+  z-index: 5;
 }
 .container #main {
-  margin: 0 auto;
   width: auto;
   max-width: 1280px;
   height: auto;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+.container #main .img_top {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.container #main .introduction {
+  text-align: center;
+  margin: 2rem;
 }
 .container #main .section1 {
-  margin: 30px;
-  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
 }
-.container #main .section1 .title_section1 {
+.container #main .section1 .img_wrap {
+  width: 100%;
+  height: auto;
+}
+.container #main .section1 .img_wrap img {
   margin: 0 auto;
-  padding: 20px;
-}
-.container #main .section1 .wrap_section1_img {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-content: space-around;
-  padding: 20px;
-}
-.container #main .section2 {
-  margin: 30px;
-  padding: 20px;
-}
-.container #main .section2 .title_section2 {
-  margin: 0 auto;
-  padding: 20px;
-}
-.container #main .section2 .wrap_section2_img {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-content: space-around;
-  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .container #footer {
   width: 100%;
   height: auto;
   background-color: rgb(214, 212, 212);
   padding: 40px;
+  text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 780px) {
+  .container {
+    position: relative;
+  }
   .container #header {
     position: relative;
-    z-index: 0;
   }
-  .container #header #navigation {
-    position: relative;
-  }
-  .container #header #navigation .img_logo {
-    position: relative;
-    z-index: 10;
-  }
-  .container #header #navigation .menu {
-    display: none;
-  }
-  .container #header #navigation #ham {
-    position: relative;
-    z-index: 10;
-  }
-  .container #header #navigation .nav_cover {
-    display: initial;
-    z-index: 100;
-    top: 0;
-    left: 0;
+  .container #header .header_wrap {
     width: 100%;
-    height: 100vh;
-    background-color: black;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #b2b2b0;
+    text-align: center;
+    align-items: center;
+    position: fixed;
   }
-  .ham {
-    position: relative; /*ボタン内側の基点となるためrelativeを指定*/
-    cursor: pointer;
-    width: 100px;
+  .container #header .header_wrap .logo {
+    width: auto;
     height: auto;
-    min-height: 80px;
-    border-radius: 5px;
+    margin-left: 10px;
+  }
+  .container #header .header_wrap .nav_cover_pc {
+    display: initial;
+    margin: 0 70px;
+  }
+  .container #header .header_wrap .nav_cover_pc ul {
+    display: flex;
+    gap: 70px;
+    width: auto;
+    height: auto;
+    text-align: center;
     justify-content: center;
     align-items: center;
-    /*activeクラスが付与されると線が回転して×に*/
   }
-  .ham span {
-    display: inline-block;
-    transition: all 0.4s; /*アニメーションの設定*/
-    position: absolute;
-    left: 14px;
-    height: 3px;
-    border-radius: 2px;
-    background: #fff;
-    width: 45%;
+  .container #header .header_wrap .nav_cover_pc ul li {
+    list-style: none;
   }
-  .ham :nth-of-type(1) {
-    top: 15px;
+  .container #header .header_wrap .nav_cover_pc ul li a {
+    text-decoration: none;
+    color: black;
   }
-  .ham :nth-of-type(2) {
-    top: 23px;
+  .container #header .header_wrap .ham {
+    display: none;
   }
-  .ham :nth-of-type(3) {
-    top: 31px;
+  .container .nav_cover_sp {
+    display: none;
   }
-  .ham.active span:nth-of-type(1) {
-    top: 18px;
-    left: 18px;
-    transform: translateY(6px) rotate(-45deg);
-    width: 30%;
+  .container #main {
+    width: auto;
+    max-width: 1280px;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 80px;
   }
-  .ham.active span:nth-of-type(2) {
-    opacity: 0; /*真ん中の線は透過*/
+  .container #main .img_top {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
   }
-  .ham.active span:nth-of-type(3) {
-    top: 30px;
-    left: 18px;
-    transform: translateY(-6px) rotate(45deg);
-    width: 30%;
+  .container #main .introduction {
+    text-align: center;
+    margin: 2rem;
+  }
+  .container #main .section1 {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .container #main .section1 .img_wrap {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .container #main .section1 .img_wrap img {
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .container #footer {
+    width: 100%;
+    height: auto;
+    background-color: rgb(214, 212, 212);
+    padding: 40px;
+    text-align: center;
   }
 }/*# sourceMappingURL=style.css.map */

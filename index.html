@@ -1,77 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>サンプルページ</title>
-    <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <title>HPサンプル</title>
   </head>
   <body>
     <div class="container">
       <header id="header">
-        <nav id="navigation">
-          <div class="img_log">
-            <img src="https://placehold.jp/120x60.png" alt="" />
+        <div class="header_wrap">
+          <div class="logo">
+            <img src="https://placehold.jp/120x60.png" alt="ロゴ" />
           </div>
-          <ul class="menu">
-            <li><a href="*">section1</a></li>
-            <li><a href="*">section2</a></li>
-            <li><a href="*">section3</a></li>
-            <li><a href="*">section4</a></li>
-            <li><a href="*">section5</a></li>
-          </ul>
+          <div class="nav_cover_pc">
+            <ul>
+              <li><a href="*">メニュー1</a></li>
+              <li><a href="*">メニュー2</a></li>
+              <li><a href="*">メニュー3</a></li>
+              <li><a href="*">メニュー4</a></li>
+              <li><a href="*">メニュー5</a></li>
+            </ul>
+          </div>
           <div id="ham_btn" class="ham">
             <span></span>
             <span></span>
             <span></span>
           </div>
-        </nav>
-        <div class="nav_cover">
-          <ul>
-            <li><a href="*">section1</a></li>
-            <li><a href="*">section2</a></li>
-            <li><a href="*">section3</a></li>
-            <li><a href="*">section4</a></li>
-            <li><a href="*">section5</a></li>
-          </ul>
-        </div>
-        <div class="header_img">
-          <img src="https://placehold.jp/1440x810.png" alt="" />
-        </div>
-        <div class="header_contents">
-          <p>
-            テキストテキストテキストテキストテキストテキストテキストテキスト
-          </p>
         </div>
       </header>
+      <nav class="nav_cover_sp">
+        <ul>
+          <li><a href="*">メニュー1</a></li>
+          <li><a href="*">メニュー2</a></li>
+          <li><a href="*">メニュー3</a></li>
+          <li><a href="*">メニュー4</a></li>
+          <li><a href="*">メニュー5</a></li>
+        </ul>
+      </nav>
       <main id="main">
-        <section class="section1">
-          <h2 class="title_section1">SECTION1</h2>
-          <div class="wrap_section1_img">
-            <img src="https://placehold.jp/300x300.png" alt="" />
-            <img src="https://placehold.jp/300x300.png" alt="" />
-            <img src="https://placehold.jp/300x300.png" alt="" />
-          </div>
+        <div class="img_top">
+          <img src="https://placehold.jp/1440x810.png" alt="top画像" />
+        </div>
+        <section class="introduction">
           <p>
-            <span
-              >セクション1セクション1セクション1セクション1セクション1セクション1</span
-            >
+            イントロダクションイントロダクションイントロダクションイントロダクションイントロダクションイントロダクションイントロダクション
           </p>
         </section>
-        <section class="section2">
-          <h2 class="title_section2">SECTION2</h2>
-          <div class="wrap_section2_img">
-            <img src="https://placehold.jp/300x300.png" alt="" />
-            <img src="https://placehold.jp/300x300.png" alt="" />
-            <img src="https://placehold.jp/300x300.png" alt="" />
+
+        <section class="section1">
+          <h2>セクション1</h2>
+          <div class="img_wrap">
+            <img src="https://placehold.jp/400x400.png" alt="" />
+            <img src="https://placehold.jp/400x400.png" alt="" />
+            <img src="https://placehold.jp/400x400.png" alt="" />
           </div>
           <p>
-            セクション1セクション1セクション1セクション1セクション1セクション1
+            セクション1セクション1セクション1セクション1セクション1セクション1セクション1セクション1
           </p>
         </section>
       </main>
-      <!-- <footer id="footer">フッター</footer> -->
+
       <footer id="footer">
         <p class="pnkz">
           <a href="/">RSKトップ</a>>
@@ -106,12 +96,10 @@
         </p>
       </footer>
     </div>
-
     <script>
-      // ハンバーガーメニュー
       const btn = document.getElementById("ham_btn");
       const ham_menu = document.querySelectorAll(".ham");
-      const cover = document.getElementById("nav_cover");
+      const cover = document.querySelector(".nav_cover_sp");
 
       btn.addEventListener("click", () => {
         ham_menu.forEach((span) => {
